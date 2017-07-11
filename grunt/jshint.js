@@ -14,7 +14,7 @@ module.exports = {
         }
     },
    
-    clientAdmin: {
+    example: {
         options: {
             '-W058': true,
             globals: {
@@ -25,7 +25,7 @@ module.exports = {
             }
         },
         files: {
-            src: ['development/admin/js/**/*.js']
+            src: ['development/example/js/**/*.js']
         }
     }
 };

@@ -1,19 +1,18 @@
 module.exports = {
-  'clientAdminApp':[
-    'requirejs:clientAdmin',
-    'sass:clientAdmin',
+  'exampleApp':[
+    'requirejs:example',
+    'sass:example',
     'newer:copy:externalLibraries',
-   // 'newer:jshint:clientAdmin',
-    'newer:cssmin:clientAdmin',
-   // 'newer:imagemin:clientAdmin'
+    'newer:cssmin:example',
+   // 'newer:imagemin:example'
   ],
-  'clientAdmin':[
-      'clientAdminApp',
-      'connect:clientAdmin'
+  'example':[
+      'exampleApp',
+      'connect:example'
   ],
  
   'default': [
-      'clientAdminApp',
-      'connect:equal'
+      'exampleApp',
+      'connect:global'
   ]
 };

@@ -7,11 +7,11 @@ module.exports = {
                 dest: 'build'
             }]
     },
-    clientAdmin:{
+    example:{
         files:[{
                 expand: true,
                 cwd: 'development',
-                src: ['img/**/*.{png,jpg,gif,svg}', 'imgs/**/*.{png,jpg,gif,svg}','admin/img/**/*.{png,jpg,gif,svg}'],
+                src: ['img/**/*.{png,jpg,gif,svg}', 'imgs/**/*.{png,jpg,gif,svg}','example/img/**/*.{png,jpg,gif,svg}'],
                 dest: 'build'
         }]
     }

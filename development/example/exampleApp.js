@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'admin/clientAdminRouter'
+    'example/exampleRouter'
     
 ], function($, _, Backbone, Router) {
     

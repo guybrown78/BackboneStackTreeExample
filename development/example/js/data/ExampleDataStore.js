@@ -4,7 +4,7 @@ define([
 
 ], function(dataStore, treeModel) {
 
-    var adminDataStore = dataStore.extend({
+    var ExampleDataStore = dataStore.extend({
         
         defaults:{
            tree:null
@@ -15,5 +15,5 @@ define([
             this.set('tree', new treeModel());
         }
     });
-    return new adminDataStore();
+    return new ExampleDataStore();
 });

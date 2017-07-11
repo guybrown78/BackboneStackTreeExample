@@ -1,7 +1,7 @@
 module.exports = {
-    clientAdmin: {
+    example: {
         files: {
-            'build/admin/css/normalize-min.css': ['development/css/normalize.css']
+            'build/example/css/normalize-min.css': ['development/css/normalize.css']
         }
     }
 };

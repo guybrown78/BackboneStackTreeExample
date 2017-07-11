@@ -1,5 +1,5 @@
 module.exports = {
-    equal:{
+    global:{
         options:{
             base:'build',
             hostname:'localhost',
@@ -10,19 +10,19 @@ module.exports = {
             cert: grunt.file.read('server.crt').toString(),
             ca: grunt.file.read('ca.crt').toString()*/
             open:{
-                target: 'http://localhost:8000/admin/client.html',
+                target: 'http://localhost:8000/example/index.html',
                 appName: 'Chrome'
             }
         }
     },
     
-    clientAdmin:{
+    example:{
         options:{
             base:'build',
             hostname:'localhost',
             keepalive:true,
             open:{
-                target: 'http://localhost:8000/admin/client.html',
+                target: 'http://localhost:8000/example/index.html',
                 appName: 'Chrome'
             }
         }

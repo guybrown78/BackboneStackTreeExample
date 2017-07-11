@@ -8,7 +8,7 @@ require.config({
     baseUrl:"../",
     
     paths: {
-        dataStore:'admin/js/data/AdminDataStore',
+        dataStore:'example/js/data/ExampleDataStore',
         jquery: 'externalLibraries/jquery/jquery-1.12.3.min',
         underscore: 'externalLibraries/underscore/underscore-min',
         backbone: 'externalLibraries/backbone/backbone-min',
@@ -19,7 +19,7 @@ require.config({
 
 require([
     // Load our app module and pass it to our definition function (does not need '.js' as is added automatically)
-    'admin/clientAdminApp'
+    'example/exampleApp'
 
             // Some plugins have to be loaded in order due to their non AMD compliance
             // Because these scripts are not "modules" they do not pass any values to the definition function below

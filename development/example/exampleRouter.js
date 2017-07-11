@@ -7,7 +7,7 @@ define([
     
 ], function(Router, dataStore, DualFocusStackPageView, SliderStackPageView) {
 
-    var clientAdminRouter = Router.extend({
+    var exampleRouter = Router.extend({
         routes: {
             // Define URL routes
 
@@ -61,7 +61,7 @@ define([
     });
     
     var initialize = function() {
-        var router = new clientAdminRouter;
+        var router = new exampleRouter;
         Backbone.history.start();
     };
     

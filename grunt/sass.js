@@ -1,9 +1,9 @@
 module.exports = {
-    clientAdmin: {
+    example: {
         files:
                 {
-                    'development/admin/css/clientAdminApp.css': ['development/sass/applications/clientAdminImports.scss'],
-                    'build/admin/css/clientAdminApp.css': ['development/sass/applications/clientAdminImports.scss']
+                    'development/example/css/exampleApp.css': ['development/sass/applications/exampleImports.scss'],
+                    'build/example/css/exampleApp.css': ['development/sass/applications/exampleImports.scss']
                 }
     }
 };
