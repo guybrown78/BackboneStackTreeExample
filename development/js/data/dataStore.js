@@ -43,7 +43,7 @@ define([
             window.localStorage.setItem('getSessionStorageValue', Date.now());
             window.localStorage.removeItem('getSessionStorageValue');
             // If the current window/tab is the first/initital window/tab of the 
-            // application,  (ie if EQUAL has just been launched), 
+            // application,  (ie if APP has just been launched), 
             // then there is no change of localstorage to catch. 
             // Therefore, the router 'execute' function will never be called 
             // and the application will fail to render it's first view.

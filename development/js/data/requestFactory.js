@@ -13,15 +13,15 @@ define([
         this.apiVersion = "1";
         this.token = null;
         this.centreId = null;
-        this.developmentServicePrefix = "https://development.ddluk.com/Equal6DevelopmentApi/api/";
-        this.servicePrefix = "https://development.ddluk.com/Equal6Api/equal/";
-        this.loginPrefix = "https://development.ddluk.com/Equal6DevelopmentApi/connect/";
+        this.developmentServicePrefix = ".../api/";
+        this.servicePrefix = "...";
+        this.loginPrefix = ".../connect/";
         this.validationRules = null;
 
         // UAT Environment settings for local hosting of web services
-        // this.developmentServicePrefix = "https://development.ddluk.com/Equal6-uat/api/api/";
-        // this.servicePrefix = "https://development.ddluk.com/Equal6-uat/api/api/";
-        // this.loginPrefix = "https://development.ddluk.com/Equal6-uat/api/connect/";
+        // this.developmentServicePrefix = ".../api/";
+        // this.servicePrefix = ".../api/";
+        // this.loginPrefix = ".../api/connect/";
 
         // Environment settings for local hosting of web services
         // this.developmentServicePrefix = "https://localhost:44394/api/";
@@ -43,7 +43,7 @@ define([
                 'Authorization':window.sessionStorage.getItem('token_type')+' '+window.sessionStorage.getItem('access_token'),
                 'Content-Type':'application/json'/*,
                 'Accept':'application/json'*/
-                //'Access-Control-Allow-Origin': 'http://staging.ddluk.com',
+                //'Access-Control-Allow-Origin': '...',
                 //'contentType': 'application/json; charset=UTF-8',
                 //contentType: "application/x-www-form-urlencoded; charset=UTF-8"
                 //'dataType': 'json'};
@@ -56,13 +56,13 @@ define([
         this.getLoginHeaders = function()
         {
             return {
-                // Authorization Should be Equal6 if using an actual access token,
-                // or Equal6Web if using a GUID to the access token in the db
-                //'Authorization': "Basic " + btoa("Equal6"+ ":" + "0C3404DC-C574-46C4-82DF-2B2A8922548E"),
-                'Authorization': "Basic " + btoa("Equal6Web"+ ":" + "0C3404DC-C574-46C4-82DF-2B2A8922548E"),
+                // Authorization Should be APP if using an actual access token,
+                // or APPWeb if using a GUID to the access token in the db
+                //'Authorization': "Basic " + btoa("APP"+ ":" + "0C3404DC-C574-46C4-82DF-2B2A8922548E"),
+                'Authorization': "Basic " + btoa("APPWeb"+ ":" + "0C3404DC-C574-46C4-82DF-2B2A8922548E"),
                 'Accept':'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
-                //'Access-Control-Allow-Origin': 'http://staging.ddluk.com',
+                //'Access-Control-Allow-Origin': 'http://...',
                 //'contentType': 'application/json; charset=UTF-8',
                 //contentType: "application/x-www-form-urlencoded; charset=UTF-8"
                 //'dataType': 'json'};

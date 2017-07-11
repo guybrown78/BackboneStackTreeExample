@@ -33,4 +33,5 @@ To build this example app seperately;
 grunt exampleApp
 ```
 
-The build process will complete with a launch of the app via localhost:8000
+The build process will complete with a launch of the app via localhost:8000. All API calls and authorization has been stripped out. The JSON that renders the tree and item data view is static and resides in 'testjson'.
+The tree loads the root level and then requests each item's children (if not already loaded) when the node is selected to open. The children are loaded on each items 'itemID'.
