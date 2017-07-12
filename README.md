@@ -1,6 +1,6 @@
 # BackboneStackTreeExample
 
-BackboneJS responsive section stack view incorporating a treeview that data binds each item's model attributes to the tree's el and a model details panel.
+Example of a recursive backbone tree view and model. Each instance of the the view is initiated with it's instance of the model item. To demonstrate the binding of the model/view instances, the tree is rendered in a split screen section stack that is responsive. The first section renders the tree, the second section renders a view that is based on the selected tree node model. Each model has a genericCount and canEdit attribute. If the CanEdit === true, the second section allows you to alter the genericCount attribute. all views are then updated on the change:genericCount event
 
 ## Getting Started
 
