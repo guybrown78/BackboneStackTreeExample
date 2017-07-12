@@ -7,6 +7,13 @@ define([
 
     /**
      * @class BaseTreeModel contains common data for all tree items
+     * the foundation parameters to initialise a treeview. All unique models base 
+     * these attributes by only adding attributes. The BaseTreeModel is reccursive,
+     * Each item in the children collection is a BaseTreeCollection.
+     * The initial BaseTreeModel is considered the root of the tree. from that root
+     * all it's children and their children are from the inital item. ie; it is assumed
+     * that for a recursive tree to exist, the tree must have at least 1 item, 
+     * that item is a BaseTreeModel
      */
     var BaseTreeModel = BaseModel.extend({
         type:"Tree",
@@ -35,7 +42,8 @@ define([
             BaseModel.prototype.initialize.apply(this);
         },
        url:function(){
-           
+           // to be overriden. Each treeview will contain a different model with unique
+           // params and unique loading API criterior.
            var jsonURL = "../testjson/tree";
            if(this.loadParams.loadType === "getChildren"){
                jsonURL += "-item-" + this.loadParams.itemId
@@ -55,6 +63,11 @@ define([
         
         parseChildren:function(response)
         {
+            // additional to backbone's default parse.
+            // The API in which the models were designed within use lazy loading,
+            // ie; only request 20 items at a time with limit and offset.
+            // The children are added to the model's additional id's so the view 
+            // can handle lazy loading logic
             if(this.get('children') && this.get('children').length > 0)
             {
                 this.additionalIds = _.pluck(response.children, 'itemId');
@@ -80,6 +93,7 @@ define([
         
         getLoadOffset:function()
         {
+            // lazy loading utility to calculate the current offset
             if(this.get('children') !== null)
             {
                 var lastPos = this.get('children').length;
@@ -90,6 +104,8 @@ define([
         
         onLoadSuccess:function()
         {
+            // override backbone's onLoadSuccess to check if all children have
+            // been loaded (because of lazy loading) and to initialise it's parent
             this.setParentModels();
             if(this.get('children').length === this.get('childrenCount'))
             {
@@ -136,7 +152,8 @@ define([
         
         destroy:function(loadOptions)
         {
-            this.loadParams.loadType = "delete";
+            // API delete the item from the DB
+            this.loadParams.loadType = "delete"; // needed to determine URL's
             BaseModel.prototype.destroy.apply(this, [loadOptions]);
         },
         getTreeItem:function(itemId)

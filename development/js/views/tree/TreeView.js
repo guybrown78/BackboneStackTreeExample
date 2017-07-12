@@ -5,7 +5,18 @@ define([
     'text!js/views/tree/TreeNodeItem.html'
 
 ], function(dataStore, BaseLoadingView, TreeTemplate, TreeNodeItem) {
-
+    /**
+     * @class The treeView renders upon js/data/models/tree/BaseTreeModel.
+     * It has to be assumed that the tree has at least one item, and that is a
+     * Model extended from BaseTreeModel. The tree is rendered in a page as one initial
+     * TreeView. The model that drives it can contain children, those children are looped
+     * and if a child has properties, the treeView will create another instance
+     * of itself within itself. Each instance of treeView only concerns itself with the
+     * items model and it's children. It doesn't need to know any parental history.
+     * TreeView is designed not to be extended. You get unique functionality from unique
+     * treeNodeItem's passed in and also from event handlers for every unique instance of an 
+     * extended BaseTreeModel
+     */
     var treeView = BaseLoadingView.extend({
 
         tagName: 'li',
@@ -27,7 +38,7 @@ define([
         additionalNodeStateValue:null, // Action to be taken on if the additionalNodeStateParams equals the additionalNodeStateValue in the 'change' handler
         additionalNodeStateSelector:"", // CSS selector to be added to the node if additionalNodeStateParams equals the additionalNodeStateValue in the 'change' handler
         //
-        additionalModelListenersHandlers:null, // GUY ROUGH  set of listeners to check for changes in the model that should be updated in the tree node
+        additionalModelListenersHandlers:null, // ROUGH  set of listeners to check for changes in the model that should be updated in the tree node
         additionalRenderFunction:null, // 
         specifyDepth:true, // A tree call can have a parameter to load only the immediate children of a model or all children. If specifyDepth is set to true, only the immediate children will be loaded. If specifyDepth is false, the whole tree will be loaded in the first call.
         initialize: function(options) {
@@ -45,7 +56,7 @@ define([
             this.listenTo(this.model, 'change:isSelected', this.onSelectedStateChange, this);
             this.listenTo(this.model, 'deleteSuccess', this.onItemDelete, this);
             this.listenTo(this.model, 'change:'+this.additionalNodeStateParams, this.onAdditionalNodeStateParamsChange, this);
-            // GUY ROUGH
+            // ROUGH
             if(this.additionalModelListenersHandlers && this.additionalModelListenersHandlers.length > 0){
                 var that = this;
                 _.each(this.additionalModelListenersHandlers, function(obj) {
@@ -229,12 +240,11 @@ define([
         },
         render: function() 
         {
-            // Load HTML template and setup events
+            // Attach the HTML created in the views template to the views el
             $(this.el).html(this.template(this.getTemplateData()));
-           // $(this.el).find('> ' + this.nodeChildrenEL).hide();
             this.initialiseEvents();
             this.addChildrenInstances();
-            //
+            // adjust the view elements according to the model's open status
             if(this.model.get("isOpen") === true)
             {
                 if(this.model.get('childrenCount') > 0 && this.model.get('children').length === 0)
